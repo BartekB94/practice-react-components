@@ -14,8 +14,8 @@ class App extends React.Component {
     renderUsersList() {
         const { users, searchQuery } = this.state;
 
-        if (searchQuery && users.includes(searchQuery)) {
-            const searchedUser = users.filter(user => user === searchQuery);
+        if (searchQuery) {
+            const searchedUser = users.filter(user => user.toLowerCase().includes(searchQuery.toLowerCase()));
             return searchedUser.map((name) => (
                 <li>
                     {name}
